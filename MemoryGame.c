@@ -21,7 +21,7 @@ bool includes (int arr[], int length, int value)
     }
 }
 
-int creatingFirstArray (int arr[])
+int* creatingFirstArray (int arr[])
 {
     int tempArr[SIZE]; // Store integers that are already signed to a random index in the array.
     for (int index = 0; index < SIZE; index++)
@@ -29,7 +29,7 @@ int creatingFirstArray (int arr[])
         int intervalNum = (rand() % SIZE) + 1; // We want number to be in interval [1,10] which will be input taken from the user.
         while (true)
         {
-            if(includes(tempArr[SIZE], SIZE, intervalNum))
+            if(includes(tempArr, SIZE, intervalNum))
             {
                 srand(time(NULL));
                 intervalNum = (rand() % SIZE) + 1;
@@ -45,7 +45,7 @@ int creatingFirstArray (int arr[])
     return arr;
 }
 
-int creatingSecondArray (int arr[])
+int* creatingSecondArray (int arr[])
 {
     int tempArr2[SIZE]; // Store integers that are already signed to a random index in the array.
     for (int index = 0; index < SIZE; index++)
@@ -53,7 +53,7 @@ int creatingSecondArray (int arr[])
         int intervalNum = (rand() % SIZE) + 1; // We want number to be in interval [1,10] which will be input taken from the user.
         while (true)
         {
-            if(includes(tempArr2[SIZE], SIZE, intervalNum))
+            if(includes(tempArr2, SIZE, intervalNum))
             {
                 srand(time(NULL));
                 intervalNum = (rand() % SIZE) + 1;
@@ -92,5 +92,14 @@ int main (void)
     Second Option: Create another array where you store picked values and do not let player choose from that list (array) again. 
     NOTE THAT: In second option, we will need 2 arrays for both first picking card array and second picking card array since if 5 and 7 are 
     chosen, the player should be able to choose 7 and 5 as these 2 situations are 2 different cases. */
+    for (int k = 0; k < SIZE; k++)
+    {
+        printf("%d ", arrOfFirstPickedCard[k]);
+    }
+    printf("\n");
+    for (int m = 0; m < SIZE; m++)
+    {
+        printf("%d ", arrOfSecondPickedCard[m]);
+    }
     return 0;
 }
